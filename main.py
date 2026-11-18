@@ -1,4 +1,8 @@
-"""Copy the front-page image to the make.fun output directory.
+"""news-image-20261117 v3: a 43-story newspaper front page summing up
+17 November 2026 world news (Kerch Bridge, Hormuz, Trump-Xi-Putin summit,
+world map, six continents) in one image.
+
+Copy the front-page image to the make.fun output directory.
 
 The entry image is the file image.jpg next to this script; it is copied
 byte-for-byte to $MAKEFUN_OUTPUT_DIR/entry.png. Deterministic: the same
