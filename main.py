@@ -1,4 +1,4 @@
-"""news-image-20261117 entry: copy the finished front-page image to the output dir.
+"""news-image-20261117 v2 entry: copy the revised front-page image to the output dir.
 
 The image (image.jpg, JPEG bytes) is written verbatim to
 $MAKEFUN_OUTPUT_DIR/entry.png. The competition accepts JPEG content in entry.png
