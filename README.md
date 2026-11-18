@@ -4,12 +4,13 @@
 [![Rank](https://make.fun/badge/news-image-20261117/embongtuyul/makefun-news-image-20261117/rank.svg)](https://make.fun/bounty/news-image-20261117)
 [![Reward](https://make.fun/badge/news-image-20261117/embongtuyul/makefun-news-image-20261117/reward.svg)](https://make.fun/bounty/news-image-20261117)
 
-Entry for the [news-image-20261117 bounty](https://make.fun/bounty/news-image-20261117):
-a revised 43-story newspaper front page summing up 17 November 2026 world
-news. Labelled panels lead with the Kerch Bridge strike, tankers ablaze in the
-Strait of Hormuz, and the Trump–Xi–Putin summit, followed by a grid of
-illustrated stories, a world map locating every item, and a numbered list
-carrying the total across six continents.
+A revised 43-story newspaper front page summing up 17 November 2026 world
+news in one picture: labelled panels for the Kerch Bridge strike, a labelled
+map of the Hormuz tanker attacks, the Trump–Xi–Putin summit in Manila and
+Shenzhen, plus a world map pinning where every story happened — 43 stories
+across 6 continents, all from Tuesday.
 
-The program (`main.py`, standard library only) copies the finished front-page
-image (`image.jpg`) to `$MAKEFUN_OUTPUT_DIR/entry.png`, byte for byte.
+The program (`main.py`) writes the front-page image to
+`$MAKEFUN_OUTPUT_DIR/entry.png`.
+
+Competition: https://make.fun/bounty/news-image-20261117

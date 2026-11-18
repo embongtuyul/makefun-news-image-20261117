@@ -1,33 +1,31 @@
-"""news-image-20261117 v2 entry: copy the revised front-page image to the output dir.
+"""Copy the front-page image to the make.fun output directory.
 
-The image (image.jpg, JPEG bytes) is written verbatim to
-$MAKEFUN_OUTPUT_DIR/entry.png. The competition accepts JPEG content in entry.png
-(the format is told apart by the file's first bytes), and the program is fully
-deterministic: the same input bytes produce the same output bytes every run.
+The entry image is the file image.jpg next to this script; it is copied
+byte-for-byte to $MAKEFUN_OUTPUT_DIR/entry.png. Deterministic: the same
+bytes come out on every run.
 """
 
 import os
-import sys
-
-HERE = os.path.dirname(os.path.abspath(__file__))
-SOURCE = os.path.join(HERE, "image.jpg")
+import pathlib
 
 
 def main():
-    with open(SOURCE, "rb") as f:
-        data = f.read()
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "out")
-    os.makedirs(out_dir, exist_ok=True)
-    out_path = os.path.join(out_dir, "entry.png")
-    with open(out_path, "wb") as f:
-        f.write(data)
-    # Verify the copy is complete: the written file must match the source bytes.
-    if os.path.getsize(out_path) != len(data):
-        raise RuntimeError("entry.png size mismatch: wrote %d bytes, expected %d"
-                           % (os.path.getsize(out_path), len(data)))
-    print("wrote %d bytes to %s" % (len(data), out_path))
-    return 0
+    here = pathlib.Path(__file__).resolve().parent
+    source = here / "image.jpg"
+    data = source.read_bytes()
+
+    out_dir = pathlib.Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "out"))
+    out_dir.mkdir(parents=True, exist_ok=True)
+    target = out_dir / "entry.png"
+    target.write_bytes(data)
+    # verify the copy landed intact: size must match the source exactly
+    if target.stat().st_size != len(data):
+        raise RuntimeError(
+            f"short write: {target} is {target.stat().st_size} bytes, "
+            f"expected {len(data)}"
+        )
+    print(f"wrote {len(data)} bytes to {target}")
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
